@@ -96,8 +96,8 @@ disp('Parameter bounds defined');
 % ub(n_flux_param+5) = 70; 
 
 % Brain only. Based on the concentration of IMP in mouse brain
-lb(n_flux_param+5) = 125; 
-ub(n_flux_param+5) = 300; 
+%lb(n_flux_param+5) = 125; 
+%ub(n_flux_param+5) = 300; 
 
 %% calculate the chi-square statistic cut-offs
 
