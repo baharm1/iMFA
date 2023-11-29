@@ -11,7 +11,7 @@ mkdir(folder);
 model_file = 'purine_model_v1';
 
 % File containing experimental data
-input_data_file = 'Input-Data\Input_brain_rt_norm.xlsx';
+input_data_file = 'Input-Data\Input_brain_ctrl_norm.xlsx';
 
 % Minimum standard deviation for experimental data
 min_sd = sqrt(10^(-5));
