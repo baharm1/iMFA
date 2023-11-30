@@ -12,7 +12,7 @@ This code was used to estimate the purine and pyrimidine pathway fluxes in GBM a
 2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
 3. The file xxxx was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine.
 
-Please note that the runtime for our machine with 12 cores was 2-3 days. Runtime may be longer depending on the machine's capability.
+Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 2-3 days. Runtime may be longer depending on the machine's capability.
 
 ### Replication of Data in the Manuscript: Purines
 
