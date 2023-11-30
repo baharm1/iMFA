@@ -76,10 +76,10 @@ lb(n_flux_param + 1: n_flux_param + n_c_param) = conc_values(:, 1); % lb for con
 %lb(n_flux_param + n_c_param) = 72.5; % c_uridine optimal concentraion in cortex
 ub = 100 * ones(n_flux_param+n_c_param,1);
 ub(1) = 100; % de novo UMP
-ub(2) = 200; % uracil + r5p == uridine
-ub(3) = 300; % cytidine == uridine
-%ub(4) = 100; % uridine == UMP
-%ub(5) = 100; % UMP_out
+ub(2) = 200; % uridine == UMP 
+ub(3) = 300; % UMP_out
+
+
 % ub(n_flux_param - 1) = 2000; % salvage UMP
 % ub(n_flux_param) = 3000; % UMP_out
 ub(n_flux_param+1:end) = 1.5 * conc_values(:,1);
