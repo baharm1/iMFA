@@ -3,12 +3,12 @@
 This code was used to estimate the purine and pyrimidine pathway fluxes in GBM and cortex in xenograft mice models. The metabolic model and methodology is described in the supplementary methods of the manuscript. The folder labeled 'Purines' has the model for the purine fluxes. The folder labeled 'Pyrimides' has the model for the pyrimidine fluxes, which is a modified version of the purine model.
 
 ### Requirements
-1. MATLAB with default installation
+1. MATLAB with default installation (We used MATLAB R2021b on Windows 11 OS)
 2. [Artelys Knitro Optimizer](https://www.artelys.com/solvers/knitro/) (MATLAB version)
 3. MATLAB Parallel Processing toolkit (optional)
 
 ## Usage: Purines
-1. To estimate the flux profiles, change the user-defined inputs in Main_Purines.m and run the file. Output will be auto-generated.
+1. To estimate the flux profiles, change the user-defined inputs in Main_Purines.m and run the file. Output plots and excel files will be auto-generated.
 2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
 3. The file xxxx was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine.
 
