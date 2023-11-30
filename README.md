@@ -10,7 +10,7 @@ This code was used to estimate the purine and pyrimidine pathway fluxes in GBM a
 ## Usage: Purines
 1. To estimate the flux profiles, change the user-defined inputs in Main_Purines.m and run the file. Output plots and excel files will be auto-generated and saved in a folder titled output_files. The files intervals.xlsx will contain the optimum flux value and confidence intervals. The folder titled plots will contain MID-time plots that compare the model simulation (lines) to the experimental data (markers).
 2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
-3. The file xxxx was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine.
+3. The file 1c_mid_estimate was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine. The input_data_file for this small code will be the same as the one used for the main model. The output from this code is included in the input files provided for the main model.
 
 Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 2-3 days. Runtime may be longer depending on the machine's capability.
 
@@ -33,7 +33,7 @@ Fluxes in cortex:
 
 ## Usage: Pyrimidines
 
-To estimate the flux profiles, change the user-defined inputs in Main_pyrimidine.m and run the file. Use the inputs specified below.
+To estimate the flux profiles, change the user-defined inputs in Main_pyrimidine.m and run the file. Use the inputs specified below. Other instructions are similar to the purine model.
    
 ### Replication of Data in the Manuscript: Pyrimidines
 
