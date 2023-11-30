@@ -11,8 +11,8 @@ mkdir(folder);
 model_file = 'pyrimidine_model_v2';
 
 % File containing experimental data
-input_data_file = 'Input-Data\Input_gbm_ctrl_norm_gbm_150PPM_20230620_hippoM5_v2.xlsx';
-%input_data_file = 'Input-Data\Input_brain_ctrl_norm_cortex_15ppm_230620_hippo_v2.xlsx';
+input_data_file = 'Input-Data\Input_gbm_ctrl_norm.xlsx';
+%input_data_file = 'Input-Data\Input_brain_ctrl_norm.xlsx';
 
 % Minimum standard deviation for experimental data
 min_sd = sqrt(10^(-5));
