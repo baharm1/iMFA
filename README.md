@@ -44,13 +44,15 @@ The following user-defined inputs were used in all cases:
 4. alpha: 0.05
 5. cl: 0.05
 
-Fluxes in GBM:
-1. input_data_file: ??????????
-2. ??????Any other specifications?????
-
 Fluxes in cortex:
-1. input_data_file: ??????????
-2. ??????????
+1. input_data_file: Input_brain_ctrl_norm.xlsx
+2. Lower bound of UMP concentration was set to its experimental value in mouse brain.
+3. Upper bound of UMP concentration was set to 1.5 times its lower bound.
+
+Fluxes in GBM:
+1. input_data_file: Input_gbm_ctrl_norm.xlsx
+2. Lower bound of UMP concentration was corrected based on ion abundances in GBM and cortex samples and UMP concentration in mouse brain.
+3. Upper bound of UMP concentration was set to 1.5 times its lower bound.
 
 ## User-Defined Inputs
 1. model_file: An Excel file with the list of reactions (purine_model_v1.xlsx).
