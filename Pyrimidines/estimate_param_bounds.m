@@ -1,15 +1,15 @@
-function [cil,ciu] = estimate_param_bounds(i,thres,xopt,Aeq,beq,tspan,time_points,n_flux_param,n_c_param,n_isotopomer_frac,...
-                         MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
-                     MID_input,input_data_metabs, SD_input, ...
-                      conc_metab,conc_values,lb,ub)
+function [cil,ciu] = estimate_param_bounds(i, thres, xopt, Aeq, beq, ...
+    tspan, time_points, n_flux_param, n_c_param, n_isotopomer_frac, ...
+    MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
+    MID_input, input_data_metabs, SD_input, conc_metab, conc_values, lb, ub)
 
 global folder
 
 % Update Aeq and beq to constrain the parameters
-param_cons = zeros(1,size(Aeq,2));
+param_cons = zeros(1, size(Aeq, 2));
 param_cons(i) = 1;
-Aeq = [Aeq;param_cons];
-beq = [beq;0];
+Aeq = [Aeq; param_cons];
+beq = [beq; 0];
 
 % Define the percentage change at each step
 change = [10, 5, 2, 1];
@@ -18,10 +18,9 @@ change = [10, 5, 2, 1];
 ok_codes = [0,-100,-101,-102,-103,-400,-401,-402];
 
 % Define the objective function
-obj_ode = @(x)calc_obj(x,tspan,time_points, n_flux_param,n_c_param,n_isotopomer_frac,...
-                           MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
-                           MID_input,input_data_metabs, SD_input, ...
-                                conc_metab,conc_values);
+obj_ode = @(x)calc_obj(x, tspan, time_points, n_flux_param, n_c_param, ...
+    n_isotopomer_frac, MID_balance, balance_data_metabs, SD_balance, ...
+    balance_metabs, MID_input, input_data_metabs, SD_input, conc_metab, conc_values);
 stopobj = thres * 0.98;
 kn_opt_E = knitro_options('UseParallel', 'true', 'fstopval', stopobj, 'outlev', 1);
 
@@ -34,9 +33,7 @@ while(flag)
     disp(['Determining upper bounds for parameter ', num2str(i)]);
 
     factor = 1 + change(step) / 100;
-    %factor = change(step) / 100;
     val2 = val1 * factor;
-    %val2 = val1 + factor * xopt(i);
     beq(end) = val2;
     x0 = xopt;
     x0(i) = val2;
@@ -83,9 +80,7 @@ while(flag)
     disp(['Determining lower bounds for parameter ', num2str(i)]);
 
     factor = 1 - change(step) / 100;
-    %factor = change(step) / 100;
     val2 = val1 * factor;
-    %val2 = val1 - factor * xopt(i);
     beq(end) = val2;
     x0 = xopt;
     x0(i) = val2;

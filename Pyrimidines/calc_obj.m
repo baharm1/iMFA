@@ -1,12 +1,13 @@
-function [obj] = calc_obj(x,tspan,time_points, n_flux_param,n_c_param,n_isotopomer_frac,...
-                           MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
-                           MID_input,input_data_metabs, SD_input, ...
-                           conc_metab,conc_values)
+function [obj] = calc_obj(x, tspan, time_points, n_flux_param, n_c_param, ...
+    n_isotopomer_frac, MID_balance, balance_data_metabs, SD_balance, ...
+    balance_metabs, MID_input, input_data_metabs, SD_input, ...
+    conc_metab, conc_values)
 
 % Assign the flux and c values
 v = x(1:n_flux_param);
 c = x(n_flux_param + 1:n_flux_param + n_c_param);
-isotopomer_frac = x(n_flux_param + n_c_param + 1:n_flux_param + n_c_param + n_isotopomer_frac);
+isotopomer_frac = x(n_flux_param + n_c_param + 1:n_flux_param + ...
+    n_c_param + n_isotopomer_frac);
 
 % Assign the values of the input MIDs
 ip_mid = x(n_flux_param + n_c_param + n_isotopomer_frac + 1:end);
@@ -29,16 +30,13 @@ slope = input_metab_slope(ip_matrix, time_points, missing);
 
 % Define M0
 M0 = [MID_input(:, 1); MID_balance(:, 1)];
-%init_gmp = zeros(6, 1);
-%init_gmp(1) = 1;
-%M0(length(M0) + 1:length(M0) + 6) = init_gmp;  % Add the initial MID for GMP
 
 % Define the metabolite identifers
-M_metab_list = [input_data_metabs;balance_data_metabs];
-%M_metab_list = [M_metab_list; repmat('GMP',6,1)]; % Add GMP to the list
+M_metab_list = [input_data_metabs; balance_data_metabs];
 
 % Define the function for ODE
-odefunc = @(t,M)dMdt_MID(t,M,v,c,isotopomer_frac, time_points,slope, input_data_metabs, M_metab_list);
+odefunc = @(t,M)dMdt_MID(t, M, v, c, isotopomer_frac, time_points, slope, ...
+    input_data_metabs, M_metab_list);
 
 reltol = 1e-3; 
 flag = 1;
@@ -71,39 +69,31 @@ end
 % calculate the value of the objective function
 
 % Calculate the error for input mid data
-M_ip_sim = M_ode(ismember(t_ode,time_points(2:end)), ismember(M_metab_list,unique(input_data_metabs)) )';
-M_ip_expt = MID_input(:,2:end);
-M_ip_sd = SD_input(:,2:end);
+M_ip_sim = M_ode(ismember(t_ode, time_points(2:end)), ...
+    ismember(M_metab_list, unique(input_data_metabs)) )';
+M_ip_expt = MID_input(:, 2:end);
+M_ip_sd = SD_input(:, 2:end);
 nan_idx = isnan(M_ip_expt);
 M_ip_expt(nan_idx) = -1;
 M_ip_sd(nan_idx) = -1;
 M_ip_error = M_ip_sim - M_ip_expt;
-obj1 = sumsqr((~nan_idx).*(M_ip_error./M_ip_sd));
+obj1 = sumsqr((~nan_idx) .* (M_ip_error ./ M_ip_sd));
 
 % calculate the error for balance metab mid
 clear nan_idx
-M_b_sim = M_ode(ismember(t_ode,time_points(2:end)), ismember(M_metab_list,unique(balance_data_metabs)) )';
-M_b_expt = MID_balance(:,2:end);
-M_b_sd = SD_balance(:,2:end);
+M_b_sim = M_ode(ismember(t_ode, time_points(2:end)), ismember(M_metab_list, ...
+    unique(balance_data_metabs)))';
+M_b_expt = MID_balance(:, 2:end);
+M_b_sd = SD_balance(:, 2:end);
 nan_idx = isnan(M_b_expt);
 M_b_expt(nan_idx) = -1;
 M_b_sd(nan_idx) = -1;
 M_b_error = M_b_sim - M_b_expt;
-% if(isempty(mid_to_remove))
-obj2 = sumsqr((~nan_idx).*(M_b_error./M_b_sd));
-% else
-%     to_keep = ones(size(M_b_error));
-%     for i = 1:numel(unique(balance_data_metabs))
-%         for j = 1:numel(unique(mid_to_remove))
-%             to_keep(6*(i-1)+mid_to_remove(j)+1,:) = 0;
-%         end
-%     end
-%     obj2 = sumsqr(to_keep.*(~nan_idx).*(M_b_error./M_b_sd));
-% end
+obj2 = sumsqr((~nan_idx) .* (M_b_error ./ M_b_sd));
 
 % Calculate the error for concentration
 obj3 = 0;
-%balance_metabs = ["URIDINE","UMP"];
+balance_metabs = ["URIDINE","UMP"];
 for k = 1:length(conc_metab)
     c_metab = conc_metab(k);
     idx = find(balance_metabs == c_metab{1});

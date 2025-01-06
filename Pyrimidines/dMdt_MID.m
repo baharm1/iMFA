@@ -1,25 +1,23 @@
-function dMdt = dMdt_MID(t,M,v,c,isotopomer_frac, time_points,slope, slope_metabs, M_metab_list)
+function dMdt = dMdt_MID(t, M, v, c, isotopomer_frac, time_points, ...
+    slope, slope_metabs, M_metab_list)
 
-dMdt = zeros(size(M,1),1);
+dMdt = zeros(size(M, 1), 1);
 
 %% Assign the flux parameters
 ump_de_novo = v(1);
-%uridine_out = v(2);
-%cytidine_uridine = v(3);
 uridine_ump = v(2);
-ump_out = v(3);
+ump_uridine = v(3);
+cytidine_uridine = v(4);
+ump_out = v(5);
+uridine_out = v(6);
 
 %% Assign the concentration parameters
-%c_uridine = c(2);
-c_ump = c(1);
+c_uridine = c(1);
+c_ump = c(2);
 
 %% Assign aspartate isotopomer fractions
-% media-3.xlsx S27
-% from supplementary data of comprehensive isotopomer analysis of glutamate 
-% and aspartate in small tissues samples
-% f_aspartate_M1 = 0.25;
-% f_aspartate_M2 = 0.49;
-% f_aspartate_M3 = isotopomer_frac(1);
+% from supplementary data (S27) of comprehensive isotopomer analysis of 
+% glutamate and aspartate in small tissues samples
 f_aspartate_M1 = isotopomer_frac(1);
 f_aspartate_M2 = isotopomer_frac(2);
 f_aspartate_M3 = isotopomer_frac(3);
@@ -28,10 +26,15 @@ f_aspartate_M3 = isotopomer_frac(3);
 
 M_r5p = M(ismember(M_metab_list,'R5P'));
 M_aspartate = M(ismember(M_metab_list,'ASPARTATE'));
-%M_uracil = M(ismember(M_metab_list,'URACIL'));
 M_ump = M(ismember(M_metab_list,'UMP'));
 M_uridine = M(ismember(M_metab_list,'URIDINE'));
-%M_cytidine = M(ismember(slope_metabs, 'CYTIDINE'));
+
+% comment/uncomment if you run it for GBM or cortex based on the following
+% info:
+% cytidine is labeled in GBM 
+M_cytidine = M(ismember(M_metab_list, 'CYTIDINE')); 
+% cytidine is unlabeled in cortex
+% M_cytidine = [1; 0; 0; 0; 0; 0];
 
 %% Assign the slope of the labeled input metabolites
 index = 1;
@@ -43,9 +46,8 @@ end
 
 dMdt(ismember(M_metab_list,'R5P')) = slope(ismember(slope_metabs,'R5P'),index);
 dMdt(ismember(M_metab_list,'ASPARTATE')) = slope(ismember(slope_metabs,'ASPARTATE'),index);
-dMdt(ismember(M_metab_list,'URIDINE')) = slope(ismember(slope_metabs,'URIDINE'),index);
-%dMdt(ismember(M_metab_list,'URACIL')) = slope(ismember(slope_metabs,'URACIL'),index);
-%dMdt(ismember(M_metab_list, 'CYTIDINE')) = slope(ismember(slope_metabs, 'CYTIDINE'),index);
+% comment the following line if you run it for cortex
+dMdt(ismember(M_metab_list, 'CYTIDINE')) = slope(ismember(slope_metabs, 'CYTIDINE'),index);
 
 %% ODEs for balanced metabolites
 
@@ -58,19 +60,11 @@ N_aspartate(4) = (1 - f_aspartate_M3) * M_aspartate(4) + M_aspartate(5);
 
 M_aspartate_r5p = sum_diag(N_aspartate * M_r5p');
 
-% dMdt_ump = dMdt(ismember(M_metab_list,'UMP'));
 dMdt(ismember(M_metab_list,'UMP')) = (ump_de_novo * M_aspartate_r5p(1:6) + ...
-    uridine_ump  * M_uridine(1:6) - ump_out * M_ump(1:6)) / c_ump;
-% dMdt_ump(7:9) = [0; 0; 0];
-% dMdt(ismember(M_metab_list,'UMP')) = dMdt_ump;
-
-% URIDINE
-%M_uracil_r5p = sum_diag(M_uracil * M_r5p');
-% dMdt_uridine = dMdt(ismember(M_metab_list,'URIDINE'));
-%dMdt(ismember(M_metab_list,'URIDINE')) = (cytidine_uridine * M_cytidine(1:6) + ... %uracil_uridine * M_uracil_r5p(1:6)
-%     - uridine_ump * M_uridine(1:6) - uridine_out * M_uridine(1:6)) / c_uridine;
-% dMdt_uridine(7:9) = [0; 0; 0];
-% dMdt(ismember(M_metab_list,'URIDINE')) = dMdt_uridine;
+    uridine_ump  * M_uridine(1:6) - (ump_out + ump_uridine) * M_ump(1:6)) / c_ump;
+% Uridine
+dMdt(ismember(M_metab_list,'URIDINE')) = (cytidine_uridine * M_cytidine + ...
+    ump_uridine  * M_ump(1:6) - (uridine_out + uridine_ump) * M_uridine(1:6)) / c_uridine;
 
 end
 
