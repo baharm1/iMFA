@@ -19,6 +19,8 @@ gdp_out = v(12);
 imp_amp = v(13);
 adenosine_amp = v(14);
 amp_out = v(15);
+adenosine_inosine = v(16);
+amp_imp = v(17);
 
 %% Assign the concentration parameters
 c_amp = c(1);
@@ -59,26 +61,31 @@ imp_de_novo = sum_diag(M_methf*M_methf');
 imp_de_novo = sum_diag(imp_de_novo*M_glycine');
 imp_de_novo = sum_diag(imp_de_novo*M_r5p');
 
-dMdt(ismember(M_metab_list,'IMP')) = (-(imp_inosine+imp_gmp+imp_amp)*M_imp + imp_in*imp_de_novo(1:6) + hypoxanthine_imp*M_r5p)/c_imp;
+dMdt(ismember(M_metab_list,'IMP')) = (-(imp_inosine + imp_gmp + imp_amp) * M_imp + ...
+    imp_in * imp_de_novo(1:6) + hypoxanthine_imp * M_r5p + amp_imp * M_amp) / c_imp;
 %dMdt(ismember(M_metab_list,'IMP')) = (-(imp_inosine+imp_gmp+imp_amp)*M_imp + imp_in*imp_de_novo([1:4,6]) + hypoxanthine_imp*M_r5p([1:4,6]))/c_imp;
 
 % Inosine
-dMdt(ismember(M_metab_list,'INOSINE')) = (-inosine_out*M_inosine + imp_inosine*M_imp + hypoxanthine_inosine*M_r5p)/c_inosine;
+dMdt(ismember(M_metab_list,'INOSINE')) = (-inosine_out * M_inosine + ...
+    imp_inosine * M_imp + hypoxanthine_inosine * M_r5p + adenosine_inosine * [1;0;0;0;0;0]) / c_inosine;
 %dMdt(ismember(M_metab_list,'INOSINE')) = (-inosine_out*M_inosine + imp_inosine*M_imp + hypoxanthine_inosine*M_r5p([1:4,6]))/c_inosine;
 
 % GMP
-dMdt(ismember(M_metab_list,'GMP')) = (-(gmp_gdp+gmp_guanosine)*M_gmp + imp_gmp*M_imp + guanine_gmp*M_r5p)/c_gmp;
+dMdt(ismember(M_metab_list,'GMP')) = (-(gmp_gdp + gmp_guanosine) * M_gmp + ...
+    imp_gmp * M_imp + guanine_gmp * M_r5p) / c_gmp;
 %dMdt(ismember(M_metab_list,'GMP')) = (-(gmp_gdp+gmp_guanosine)*M_gmp + imp_gmp*M_imp(1:4) + guanine_gmp*M_r5p(1:4))/c_gmp;
 
 % GDP
-dMdt(ismember(M_metab_list,'GDP')) = (-gdp_out*M_gdp + gmp_gdp*M_gmp)/c_gdp;
+dMdt(ismember(M_metab_list,'GDP')) = (-gdp_out * M_gdp + gmp_gdp * M_gmp) / c_gdp;
 
 % Guanosine
-dMdt(ismember(M_metab_list,'GUANOSINE')) = (-guanosine_out*M_guanosine + guanine_guanosine*M_r5p + gmp_guanosine*M_gmp)/c_guanosine;
+dMdt(ismember(M_metab_list,'GUANOSINE')) = (-guanosine_out * M_guanosine + ...
+    guanine_guanosine * M_r5p + gmp_guanosine * M_gmp) / c_guanosine;
 %dMdt(ismember(M_metab_list,'GUANOSINE')) = (-guanosine_out*M_guanosine + guanine_guanosine*M_r5p(1:4) + gmp_guanosine*M_gmp)/c_guanosine;
 
 % AMP
-dMdt(ismember(M_metab_list,'AMP')) = (-amp_out*M_amp + imp_amp*M_imp + adenosine_amp*[1;0;0;0;0;0])/c_amp;
+dMdt(ismember(M_metab_list,'AMP')) = (-(amp_out + amp_imp) * M_amp + ...
+    imp_amp * M_imp + adenosine_amp * [1;0;0;0;0;0]) / c_amp;
 %dMdt(ismember(M_metab_list,'AMP')) = (-amp_out*M_amp + imp_amp*M_imp([1,4]) + adenosine_amp*[1;0])/c_amp;
 
 end

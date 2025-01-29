@@ -13,7 +13,7 @@ model_file = 'pyrimidine_model';
 % File containing experimental data
 input_data_file = 'input_data\input_gbm.xlsx'; % GBM data
 % if you run it for cortex, please follow the instructions in dMdt_MID.m to
-% comment/uncomment lines related to cortex.
+% comment/uncomment lines related to cortex:
 % input_data_file = 'input_data\input_brain.xlsx'; % cortex data
 
 % Minimum standard deviation for experimental data
@@ -29,18 +29,18 @@ alpha = 0.05;
 % Confidence level for parameter intervals
 cl = 0.95;
 
-niter = 3;
+niter = 100;
 
 %% Read the input files and process the data
 
 % Read the model information
-[S,rxns,input_metabs,balance_metabs] = import_model(model_file);
+[S, rxns, input_metabs, balance_metabs] = import_model(model_file);
 disp('Model imported');
 
 % Read the experimental MID data
 [time_points, input_data_metabs, MID_input, SD_input,...
     balance_data_metabs, MID_balance, SD_balance,...
-    conc_metab,conc_values] = import_expt_data(input_data_file, min_sd, ...
+    conc_metab, conc_values] = import_expt_data(input_data_file, min_sd, ...
     input_metabs, balance_metabs);
 disp('experimental data imported');
 
@@ -48,7 +48,7 @@ disp('experimental data imported');
 
 n_c_param = length(balance_metabs);
 n_flux_param = size(S, 2);
-n_input_param = sum(~isnan(MID_input(:, 2:end)),'all');
+n_input_param = sum(~isnan(MID_input(:, 2:end)), 'all');
 n_isotopomer_frac = 3;
 
 Aeq = [S, zeros(size(S, 1), n_c_param + n_isotopomer_frac)];
@@ -56,19 +56,19 @@ beq = zeros(size(S, 1), 1);
 
 % Add rows and columns for the input metabolite MIDs
 % The input MID values should be 1
-ip_metabs = unique(input_data_metabs,'stable');
-cons_mtx = zeros(numel(ip_metabs),numel(input_data_metabs));
+ip_metabs = unique(input_data_metabs, 'stable');
+cons_mtx = zeros(numel(ip_metabs), numel(input_data_metabs));
 for k = 1:numel(ip_metabs)
     cons_mtx(k,ismember(input_data_metabs,ip_metabs(k))) = 1;
 end
 ip_mid_cons = [];
 for t = 2:numel(time_points)
-    temp = cons_mtx*MID_input(:,t);
-    ip_mid_cons= blkdiag(ip_mid_cons,cons_mtx(~isnan(temp),:));
+    temp = cons_mtx * MID_input(:, t);
+    ip_mid_cons= blkdiag(ip_mid_cons, cons_mtx(~isnan(temp),:));
     clear temp
 end
-Aeq = blkdiag(Aeq,ip_mid_cons);
-beq = [beq;ones(size(ip_mid_cons,1),1)];
+Aeq = blkdiag(Aeq, ip_mid_cons);
+beq = [beq; ones(size(ip_mid_cons, 1), 1)];
 
 disp('Linear constraint matrices created');
 
@@ -187,22 +187,22 @@ writetable(table(parameter,[x_range(1:n_flux_param + n_c_param + ...
 
 %% Estimate the confidence intervals (only the flux and concentration parameters)
 
-% thres = chi2inv(cl, 1) + fval_range(minimum);
-% 
-% for k = 1:(n_flux_param + n_c_param + n_isotopomer_frac)
-%     [cil(k), ciu(k)] = estimate_param_bounds(k, thres, x_opt, Aeq, beq, ...
-%         tspan, time_points, n_flux_param, n_c_param, n_isotopomer_frac, ...
-%         MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
-%         MID_input, input_data_metabs, SD_input, ...
-%         conc_metab, conc_values, lb, ub);
-% end
-% 
-% intervals = table(parameter(1:end - 1), x_opt((1:n_flux_param + ...
-%     n_c_param + n_isotopomer_frac)), cil', ciu', lb(1:n_flux_param + ...
-%     n_c_param + n_isotopomer_frac), ub(1:n_flux_param + n_c_param + ...
-%     n_isotopomer_frac));
-% intervals.Properties.VariableNames = {'Parameter', 'Value', 'lower_CI', 
-%     'upper_CI', 'lb', 'ub'};
-% writetable(intervals, [folder, '\intervals.xlsx'], 'Sheet', 1);
-% 
-% save([folder, '\data']);
+thres = chi2inv(cl, 1) + fval_range(minimum);
+ 
+for k = 1:(n_flux_param + n_c_param + n_isotopomer_frac)
+    [cil(k), ciu(k)] = estimate_param_bounds(k, thres, x_opt, Aeq, beq, ...
+        tspan, time_points, n_flux_param, n_c_param, n_isotopomer_frac, ...
+        MID_balance, balance_data_metabs, SD_balance, balance_metabs, ...
+        MID_input, input_data_metabs, SD_input, ...
+        conc_metab, conc_values, lb, ub);
+end
+ 
+intervals = table(parameter(1:end - 1), x_opt((1:n_flux_param + ...
+    n_c_param + n_isotopomer_frac)), cil', ciu', lb(1:n_flux_param + ...
+    n_c_param + n_isotopomer_frac), ub(1:n_flux_param + n_c_param + ...
+    n_isotopomer_frac));
+intervals.Properties.VariableNames = {'Parameter', 'Value', 'lower_CI', 
+    'upper_CI', 'lb', 'ub'};
+writetable(intervals, [folder, '\intervals.xlsx'], 'Sheet', 1);
+ 
+save([folder, '\data']);
