@@ -1,84 +1,164 @@
-# iMFA
+# iMFA: _In Vivo_ Metabolic Flux Analysis
 
-This code was used to estimate the purine and pyrimidine pathway fluxes in GBM and cortex in xenograft mice models. The metabolic model and methodology is described in the supplementary methods of the manuscript. The folder labeled 'Purines' has the model for the purine fluxes. The folder labeled 'Pyrimides' has the model for the pyrimidine fluxes, which is a modified version of the purine model.
+This code was used to estimate the purine and pyrimidine pathway fluxes in GBM and cortex in xenograft mice models. The metabolic model and methodology is described in the supplementary methods of the manuscript.
+Metabolites were assumed to be not accumulated in the treatment-naïve tissues. 
+However, the enrichment of MIDs for mass-balanced metabolites were assumed to be accumulated over time based on our time course experiments. Hence, a metabolic steady state - isotopic non-steady steady state metabolic flux analysis (INST-MFA) was used.
+In the radiation treated tissues, we incorporated time-dependent changes of metabolite pool sizes and a dynamic MFA was performed.
 
 ### Requirements
 1. MATLAB with default installation (We used MATLAB R2021b on Windows 11 OS)
 2. [Artelys Knitro Optimizer](https://www.artelys.com/solvers/knitro/) (MATLAB version)
 3. MATLAB Parallel Processing toolkit (optional)
 
-## Usage: Purines
-1. To estimate the flux profiles, change the user-defined inputs in Main_Purines.m and run the file. Output plots and excel files will be auto-generated and saved in a folder titled output_files. The files intervals.xlsx will contain the optimum flux value and confidence intervals. The folder titled plots will contain MID-time plots that compare the model simulation (lines) to the experimental data (markers).
-2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
-3. The file 1c_mid_estimate was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine. The input_data_file for this small code will be the same as the one used for the main model. The output from this code is included in the input files provided for the main model.
+## Correction of mice inter-variability for U<sup>13</sup>C-glucose saturation (`saturation_enrichment`)
 
-Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 2-3 days. Runtime may be longer depending on the machine's capability.
+To remove the inter-variability of plasma glucose enrichment between mice, we fitted the plasma glucose mean enrichment to a two-compartment exponential decay function based on the tracer kinetics model [1]. The following parameters are needed to run `two_compartment.m`:
+
+* Rate of tracer infusion (mg/min/g): `r = 0.012`
+* Bolus dose (mg/min/g): `P = 0.4`
+* Plasma glucose mean enrichment at steady state to estimate parameters of fitting curve: `plasma_glucose_ME_4h.xlsx`
+* Plasma glucose mean enrichment for all samples to estimate saturation enrichment: `plasma_glucose_ME_all.xlsx`
+* Minimum steady state enrichment observed in the data: `min_ss = 0.35`
+* Maximum enrichment from bolus at t = 0: `t0_max = 0.6`
+* Minimum enrichment from bolus at t = 0: `t0_min = 0.3`
+
+Output files of `two_compartment.m` are as follows:
+
+* `avgSE_2comp.xlsx`: asymptotes of fitted curve i.e. saturation enrichment for all samples
+* `avgSE_fit_2comp`: plots of plasma glucose enrichment with fitted curve
+
+To remove the inter-variability in saturation enrichment of mice, a correction factor is calculated for each mouse by dividing the mouse saturation enrichment to the average of saturation enrichment values across mice (`SE_factors.xlsx`). 
+Then the tissue labeled MIDs are divided by the correction factor in `SEnorm.R` which requires the following the input files:
+
+* `input_data_perform_SEnorm`: tissue metabolite MIDs
+* `SE_factors.xlsx`: correction factors for all samples
+
+Output files of `SEnorm.R` are normalized MIDs (`output_SEnorm`).
+
+## Purine INST-MFA Model
+1. To estimate the flux profiles, change the user-defined inputs in `main_purines.m` and run the file. Output plots and excel files will be auto-generated and saved in a folder titled output_files. The files intervals.xlsx will contain the optimum flux value and confidence intervals. The folder titled plots will contain MID-time plots that compare the model simulation (blue lines) to the experimental data (orange markers). 95% confidence intervals of fluxes resulted from `main_purines.m` were used as lower and upper bounds of fluxes at t=0 in dynamic iMFA.
+2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
+3. The file `MTHF_mid_estimation.m` was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine. The input_data_file for this small code will be the same as the one used for the main model. The output from this code is included in the input files provided for the main model.
+4. The results of purine INST-MFA model are shown in **Fig 4A**.
+
+Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 2-3 days. Runtime may differ depending on the machine's capability.
 
 ### Replication of Data in the Manuscript: Purines
 
 The following user-defined inputs were used in all cases:
-1. model_file: 'purine_model_v1.xlsx'
+1. model_file: 'purine_model.xlsx'
 2. min_sd: sqrt(10^(-5))
 3. ncores: 1
 4. alpha: 0.05
-5. cl: 0.05
+5. cl: 0.95
 
 Fluxes in GBM:
-1. input_data_file: 'Input-Data\Input_gbm_rt_norm.xlsx'
-2. Set the bounds for GMP and IMP concentrations (uncomment lines 93-96 in Main_Purines.m).
+1. input_data_file: 'Input-Data\Input_gbm_ctrl_norm.xlsx' (uncomment line 14 and comment line 16 in main_purines.m).
+2. Set the bounds for GMP and IMP concentrations (uncomment lines 111-114 and comment lines 80, 90, 117-118 in main_purines.m).
 
 Fluxes in cortex:
-1. input_data_file: 'Input-Data\Input_brain_rt_norm.xlsx'
-2. Set the bounds for IMP concentration (uncomment lines 99-100 in Main_Purines.m).
+1. input_data_file: 'Input-Data\Input_brain_ctrl_norm.xlsx' (uncomment line 16 and comment line 14 in main_purines.m).
+2. Set the bounds for IMP concentration (uncomment lines 80, 90, 117, 118 and comment 111-114 in main_purines.m).
 
-## Usage: Pyrimidines
+## Pyrimidine INST-MFA Model
 
-To estimate the flux profiles, change the user-defined inputs in Main_pyrimidine.m and run the file. Use the inputs specified below. Other instructions are similar to the purine model.
+To estimate the flux profiles, change the user-defined inputs in `main_pyrimidines.m` and run the file. In pyrimidine model, we used a set of parameters for fractional contribution of isotopologues of aspartate that creates labeling patterns in UMP. Other instructions are similar to the purine model.
+The results of pyrimidine INST-MFA model are shown in **Fig S16C**.
    
 ### Replication of Data in the Manuscript: Pyrimidines
 
 The following user-defined inputs were used in all cases:
-1. model_file: 'pyrimidine_model_v2.xlsx'
+1. model_file: 'pyrimidine_model.xlsx'
 2. min_sd: sqrt(10^(-5))
 3. ncores: 1
 4. alpha: 0.05
-5. cl: 0.05
-
-Fluxes in cortex:
-1. input_data_file: Input_brain_ctrl_norm.xlsx
-2. Lower bound of UMP concentration was set to its experimental value in mouse brain.
-3. Upper bound of UMP concentration was set to 1.5 times its lower bound.
+5. cl: 0.95
 
 Fluxes in GBM:
-1. input_data_file: Input_gbm_ctrl_norm.xlsx
-2. Lower bound of UMP concentration was corrected based on ion abundances in GBM and cortex samples and UMP concentration in mouse brain.
-3. Upper bound of UMP concentration was set to 1.5 times its lower bound.
+1. input_data_file: 'Input-Data\Input_gbm_ctrl_norm.xlsx'
+2. Set lower and upper bounds of fractional contribution of aspartate in UMP labeling based on [2].
 
-## User-Defined Inputs
-1. model_file: An Excel file with the list of reactions (purine_model_v1.xlsx).
+Fluxes in cortex:
+1. input_data_file: 'Input-Data\Input_brain_ctrl_norm.xlsx'
+2. Set lower and upper bounds of fractional contribution of aspartate in UMP labeling based on [2].
+
+## INST-MFA General Information
+User-defined inputs are as follows:
+1. model_file: An Excel file with the list of reactions (purine_model.xlsx, pyrimidine_model.xlsx).
 2. input_data_file: An excel file with the input data (see files in Input-Data).
-3. min_sd: Minimum standard deviation of the isotope tracer data. The standard deviation needs to a non-zero fininite value.
+3. min_sd: Minimum standard deviation of the isotope tracer data is set to a non-zero fininite value.
 4. ncores: Number of optimizations to run in parallel. Possible when multiple Knitro lisences are available (this is diferent from using parallelization within Knitro finite difference implementation).
 5. alpha: Threshold used for chi-square-goodness-of-fit test.
 6. cl: Confidence level for flux bound estimation.
 
 ### Model File
 
-input_data_file is an Excel file with the following data in separate tabs:
-1. reactions: a list of model reactions formatted as in purine_model_v1.xlsx
+model_file is an Excel file with the following data in separate sheets:
+1. reactions: a list of model reactions formatted as in purine_model.xlsx
 2. input_metabs: names of the input metabolites
-3. balance_metabs: names of the balanced metabolites
+3. balance_metabs: names of the balanced metabolites. Stoichiometry and isotopologue balance equations are solved for these metabolites.
 
 ### Input Data File
 
-input_data_file is an Excel file with the following data in separate tabs:
-1. MID: The MID enrichments of the metabolites in the model (in %). The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours).
-2. SD: Standard deviation of the measured MID values. Same format as MID.
-3. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation.
-4. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model.
+input_data_file is an Excel file with the following data in separate sheets:
+1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours). 
+2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S15B-C**.
+3. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
+4. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation. Concentraion unit is pmol/mg-tissue. Calculation of concentrations are shown in `norm_abundance_control.xlsx` and **Fig S15D**.
 
-   
+## Purine Dynamic MFA
+This code was used to estimate time-dependent changes in purine pathway fluxes after radiation. We used B-splines to generate the transient flux profiles from time-course isotope tracing data. 
+The metabolic model and methodology is described in the supplementary methods of the manuscript. The results of purine dynamic MFA are shown in **Fig S19**.
 
+### Usage
+1. To estimate the flux profiles, change the user-defined inputs in `main_purines_dmfa.m` and run the file. The flux-time plots will be generated and saved a folder titled output_files.
+2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles in the manuscript.
+3. If the optimal spline knots are to be determined, then run Optimize_Breakpoints.m and choose the optimal knots according to the generated score plots.
+4. To run the code for DMFA, we first need to run the INST-MFA method on steady-state data to get the flux profiles before treatment. The results are used to set the initial condition for the dynamic flux profiles. This helped start optimization from an informed parameter space. 95% confidence intervals of fluxes resulted from purine INST-MFA were used as lower and upper bounds of fluxes at t=0 in dynamic iMFA.
 
+Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 3-4 days. Runtime may differ depending on the machine's capability.
 
+### User-Defined Inputs
+1. model_file: An Excel file with the list of reactions simialr to INST-MFA model_file (purine_model.xlsx).
+2. input_data_file: An excel file with the input data (see files in Input-Data).
+3. min_sd: Minimum standard deviation of the isotope tracer data is set to a non-zero fininite value.
+4. niter: Number of random starting points for parameter optimization.
+5. bspline_order: spline order
+6. internal_knots: position of internal knots for spline
+7. ub_flux: upper bound for the flux parameters
+8. l2: weight for l2 normalization of flux parameters (optional). We set l2 to 0 for the fluxes reported in the manuscript.
+
+### Input Data File
+
+input_data_file is an Excel file with the following data in separate sheets:
+1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours).
+2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S18B**.
+3. conc: The fold-change in metabolite concentrations relative to t=0 (_i.e._, ctrl condition). The first column corresponds to the metabolite name and the subsequent columns correspond to the values at sampled time points. The value of the first row from the third column onwards corresponds to the time (in hours).
+4. conc SD: Standard deviation of the measured values in conc sheet with the same format as conc sheet. Calculation of concentrations are shown in `norm_abundance_rt.xlsx` and **Fig S18C**.
+5. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
+6. c0: The initial concentrtaion of the mass-balanced metabolites. The values were set according to the results from the INST-MFA purine model. conc: concentration, sd: standard deviation, lb: lower bound, ub: upper bound, ss_opt: The optimum value determined from the INST-MFA code.
+7. v0: The initial fluxes. The values were set according to the results from the INST-MFA purine model. lb: lower bound, ub: upper bound, ss_opt: The optimum value determined from the INST-MFA code.
+
+### Replication of Data in the Manuscript
+
+The following user-defined inputs were used in all cases:
+1. model_file: 'purine_model.xlsx'
+2. min_sd: sqrt(10^(-5))
+3. niter: 100
+4. bspline_order: 3
+5. ub_flux: 2000
+6. l2: 0
+
+Fluxes in GBM after RT:
+1. input_data_file: 'Input-Data\Input_gbm_rt_conc_abund.xlsx'
+2. internal_knots: [0.3]
+
+Fluxes in cortex after RT:
+1. input_data_file: 'Input-Data\Input_brain_rt_conc_abund.xlsx'
+2. internal_knots: [0.65]
+
+## References   
+[1] Tracer methods for in vivo kinetics, Chapter 9, Constant infusion of tracer, Shipley R.A. and Clark R.E. (1972)
+
+[2] Cai, F. et al. (2023) Comprehensive isotopomer analysis of glutamate and aspartate in small tissue samples. Cell Metab. [10.1016/j.cmet.2023.07.013] (https://doi.org/10.1016/j.cmet.2023.07.013)
    
