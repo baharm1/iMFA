@@ -134,10 +134,10 @@ input_data_file is an Excel file with the following data in separate sheets:
 1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours).
 2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S18B**.
 3. conc: The fold-change in metabolite concentrations relative to t=0 (_i.e._, ctrl condition). The first column corresponds to the metabolite name and the subsequent columns correspond to the values at sampled time points. The value of the first row from the third column onwards corresponds to the time (in hours).
-4. conc SD: Standard deviation of the measured values in conc sheet with the same format as conc sheet. Calculation of concentrations are shown in `norm_abundance_rt.xlsx` and **Fig S18C**.
+4. conc SD: Standard deviation of the measured values in conc sheet with the same format as conc sheet. Calculation of concentrations are shown in `norm_abundance_rt.xlsx` and **Fig S18C**.
 5. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
 6. c0: The initial concentrtaion of the mass-balanced metabolites. The values were set according to the results from the INST-MFA purine model. conc: concentration, sd: standard deviation, lb: lower bound, ub: upper bound, ss_opt: The optimum value determined from the INST-MFA code.
-7. v0: The initial fluxes. The values were set according to the results from the INST-MFA purine model. lb: lower bound, ub: upper bound, ss_opt: The optimum value determined from the INST-MFA code.
+7. v0: The initial fluxes. The values were set according to the results from the INST-MFA purine model. lb: 95% lower confidence bound, ub: 95% upper confidence bound, ss_opt: The optimum value determined from the INST-MFA code.
 
 ### Replication of Data in the Manuscript
 
@@ -160,5 +160,5 @@ Fluxes in cortex after RT:
 ## References   
 [1] Tracer methods for in vivo kinetics, Chapter 9, Constant infusion of tracer, Shipley R.A. and Clark R.E. (1972)
 
-[2] Cai, F. et al. (2023) Comprehensive isotopomer analysis of glutamate and aspartate in small tissue samples. Cell Metab. [10.1016/j.cmet.2023.07.013] (https://doi.org/10.1016/j.cmet.2023.07.013)
+[2] Cai, F. et al. (2023) Comprehensive isotopomer analysis of glutamate and aspartate in small tissue samples. Cell Metab. [10.1016/j.cmet.2023.07.013](https://doi.org/10.1016/j.cmet.2023.07.013)
    
