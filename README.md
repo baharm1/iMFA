@@ -4,6 +4,7 @@ This code was used to estimate the purine and pyrimidine pathway fluxes in GBM a
 Metabolites were assumed to be not accumulated in the treatment-naïve tissues. 
 However, the enrichment of MIDs for mass-balanced metabolites were assumed to be accumulated over time based on our time course experiments. Hence, a metabolic steady state - isotopic non-steady steady state metabolic flux analysis (INST-MFA) was used.
 In the radiation treated tissues, we incorporated time-dependent changes of metabolite pool sizes and a dynamic MFA was performed.
+Codes related to molecular subtype classification and differential expression analysis can be found in `other_analyses` folder. 
 
 ### Requirements
 1. MATLAB with default installation (We used MATLAB R2021b on Windows 11 OS)
@@ -14,24 +15,24 @@ In the radiation treated tissues, we incorporated time-dependent changes of meta
 
 To remove the inter-variability of plasma glucose enrichment between mice, we fitted the plasma glucose mean enrichment to a two-compartment exponential decay function based on the tracer kinetics model [1]. The following parameters are needed to run `two_compartment.m`:
 
-* Rate of tracer infusion (mg/min/g): `r = 0.012`
-* Bolus dose (mg/min/g): `P = 0.4`
-* Plasma glucose mean enrichment at steady state to estimate parameters of fitting curve: `plasma_glucose_ME_4h.xlsx`
-* Plasma glucose mean enrichment for all samples to estimate saturation enrichment: `plasma_glucose_ME_all.xlsx`
-* Minimum steady state enrichment observed in the data: `min_ss = 0.35`
-* Maximum enrichment from bolus at t = 0: `t0_max = 0.6`
-* Minimum enrichment from bolus at t = 0: `t0_min = 0.3`
+1. Rate of tracer infusion (mg/min/g): `r = 0.012`
+2. Bolus dose (mg/min/g): `P = 0.4`
+3. Plasma glucose mean enrichment at steady state to estimate parameters of fitting curve: `plasma_glucose_ME_4h.xlsx`
+4. Plasma glucose mean enrichment for all samples to estimate saturation enrichment: `plasma_glucose_ME_all.xlsx`
+5. Minimum steady state enrichment observed in the data: `min_ss = 0.35`
+6. Maximum enrichment from bolus at t = 0: `t0_max = 0.6`
+7. Minimum enrichment from bolus at t = 0: `t0_min = 0.3`
 
 Output files of `two_compartment.m` are as follows:
 
-* `avgSE_2comp.xlsx`: asymptotes of fitted curve i.e. saturation enrichment for all samples
-* `avgSE_fit_2comp`: plots of plasma glucose enrichment with fitted curve
+1. `avgSE_2comp.xlsx`: asymptotes of fitted curve i.e. saturation enrichment for all samples
+2. `avgSE_fit_2comp`: plots of plasma glucose enrichment with fitted curve
 
 To remove the inter-variability in saturation enrichment of mice, a correction factor is calculated for each mouse by dividing the mouse saturation enrichment to the average of saturation enrichment values across mice (`SE_factors.xlsx`). 
 Then the tissue labeled MIDs are divided by the correction factor in `SEnorm.R` which requires the following the input files:
 
-* `input_data_perform_SEnorm`: tissue metabolite MIDs
-* `SE_factors.xlsx`: correction factors for all samples
+1. `input_data_perform_SEnorm`: tissue metabolite MIDs
+2. `SE_factors.xlsx`: correction factors for all samples
 
 Output files of `SEnorm.R` are normalized MIDs (`output_SEnorm`).
 
