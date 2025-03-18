@@ -105,7 +105,7 @@ input_data_file is an Excel file with the following data in separate sheets:
 1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours). 
 2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S15B-C**.
 3. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
-4. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation. Concentraion unit is pmol/mg-tissue. Calculation of concentrations are shown in `norm_abundance_control.xlsx` and **Fig S15D**.
+4. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation. Concentraion unit is pmol/mg-tissue. Calculation of concentrations are shown in `norm_abundance_control.xlsx` and **Fig S15D**.
 
 ## Purine Dynamic MFA
 This code was used to estimate time-dependent changes in purine pathway fluxes after radiation. We used B-splines to generate the transient flux profiles from time-course isotope tracing data. 
