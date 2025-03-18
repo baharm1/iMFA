@@ -8,7 +8,7 @@ These thresholds were used to assign cells to molecular subtypes. This analysis 
 
 ## Molecular subtype classification using bulk RNA-seq
 We integrated our RNA-seq data with TCGA-GBM RNA-seq data. To download TCGA-GBM, we picked sample ids that contain bulk RNA-seq data from [GDC data portal](https://portal.gdc.cancer.gov/). The sample ids can be found in `cohort_Brain.2024-12-13.tsv`. 
-Read counts were normalized to reads per kilobase per million mapped reads (RPKM) and transcript per million (TPM) using the human reference genome from Ensembl (Homo_sapiens.GRCh38.113.gtf.gz) and the Ensemble transcripts with the maximum transcript length.
+Read counts were normalized to reads per kilobase per million mapped reads (RPKM) and transcript per million (TPM) using the human reference genome from [Ensembl](https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz) and the Ensemble transcripts with the maximum transcript length.
 RPKM values were transformed to log2(1+RPKM) and Ensemble ids were converted to HGNC ids or gene names using biomaRt library (version 2.54.0) in R (4.2.2). 
 Signature genes of molecular subtypes were defined previously in [1]. 
 TPM values (`combined_tcga_tempus_tpm.gct`) were imported to GenePattern [3] single sample geneset enrichment analysis (ssGSEA) and sample normalization method was set to rank to calculate geneset enrichment of molecular subtypes (`ssgsea_gene_pattern_tcga_gbm_gdc_tempus`). 
@@ -23,7 +23,11 @@ These calculations were performed on [GEO2R portal](https://www.ncbi.nlm.nih.gov
 
 ## References
 [1] Wang, Q. _et al._ (2017) Tumor Evolution of Glioma-Intrinsic Gene Expression Subtypes Associates with Immunological Changes in the Microenvironment. _Cancer Cell_ 32, 42-56 e46. 10.1016/j.ccell.2017.06.003
+
 [2] Aibar, S. _et al._ (2017) SCENIC: single-cell regulatory network inference and clustering. _Nat Methods_ 14, 1083-1086. 10.1038/nmeth.4463
+
 [3] Reich, M. et al. (2006) GenePattern 2.0. Nat Genet 38, 500-501. 10.1038/ng0506-500
+
 [4] Gill, B.J. et al. (2014) MRI-localized biopsies reveal subtype-specific differences in molecular and cellular composition at the margins of glioblastoma. Proc Natl Acad Sci U S A 111, 12550-12555. 10.1073/pnas.1405839111
+
 [5] Hwang, T. et al. (2022) Genome-wide perturbations of Alu expression and Alu-associated post-transcriptional regulations distinguish oligodendroglioma from other gliomas. Commun Biol 5, 62. 10.1038/s42003-022-03011-w
