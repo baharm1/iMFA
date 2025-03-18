@@ -1,0 +1,93 @@
+Accession	Title	Source name	Tissue type
+GSM1440412	BJ003	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440413	BJ007	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440414	BJ008	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440415	BJ012	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440416	BJ013	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440417	BJ015	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440418	BJ016	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440419	BJ018	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440420	BJ020	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440421	BJ021	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440422	PC121	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440423	PC122	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440424	PC126	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440425	PC127	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440426	PC65	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440427	PC128	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440428	PC129	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440429	PC66	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440430	PC134	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440431	PC68	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440432	PC137	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440433	PC60	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440434	PC72	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440435	PC139	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440436	PC110	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440437	PC114	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440438	PC116	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440439	PC55	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440440	PC53	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440441	PC117	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440442	PC57	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440443	PC61	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440444	PC119	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440445	JJ034	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440446	JJ036	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440447	JJ038	glioma tissue - non-enhancing FLAIR+ sample	glioma - non-enhancing FLAIR+ sample
+GSM1440448	PC124	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440449	PC47	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440450	PC125	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440451	PC130	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440452	PC131	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440453	PC63	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440454	PC132	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440455	PC133	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440456	PC64	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440457	PC135	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440458	PC67	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440459	PC136	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440460	PC71	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440461	PC138	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440462	PC140	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440463	PC141	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440464	PC112	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440465	PC123	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440466	PC115	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440467	PC52	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440468	PC56	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440469	PC118	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440470	PC120	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440471	BJ001	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440472	BJ002	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440473	BJ004	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440474	BJ005	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440475	BJ006	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440476	BJ009	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440477	BJ010	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440478	BJ011	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440479	BJ014	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440480	BJ017	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440481	BJ019	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440482	BJ022	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440483	BJ023	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440484	JJ035	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440485	JJ037	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440486	JJ039	glioma tissue - contrast-enhancing sample	glioma - contrast-enhancing sample
+GSM1440487	BJ025	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440488	BJ026	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440489	BJ027	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440490	BJ028	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440491	BJ029	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440492	BJ030	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440493	BJ031	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440494	BJ024	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440495	JJ015	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440496	JJ013	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440497	JJ014	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440498	AP001	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440499	AP002	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440500	AP003	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440501	AP004	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440502	AP005	non-neoplastic brain tissue	non-neoplastic brain
+GSM1440503	AP006	non-neoplastic brain tissue	non-neoplastic brain

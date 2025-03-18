@@ -1,0 +1,83 @@
+Accession	Title	Source name	Tissue	Tumor status	Patient id	Pathology
+GSM5044697	N35	human brain tissue	brain	Normal	Case_1	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044698	T35	human brain tissue	brain	Tumor	Case_1	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044699	N37	human brain tissue	brain	Normal	Case_2	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044700	T37	human brain tissue	brain	Tumor	Case_2	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044701	N38	human brain tissue	brain	Normal	Case_3	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044702	T38	human brain tissue	brain	Tumor	Case_3	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044703	N54	human brain tissue	brain	Normal	Case_44	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044704	T54	human brain tissue	brain	Tumor	Case_44	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044705	N55-2	human brain tissue	brain	Normal	Case_45	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044706	T55	human brain tissue	brain	Tumor	Case_45	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044707	N48-1	human brain tissue	brain	Normal	Case_46	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044708	T56	human brain tissue	brain	Tumor	Case_46	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 2
+GSM5044709	N43-1	human brain tissue	brain	Normal	Case_35	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044710	T43-1	human brain tissue	brain	Tumor	Case_35	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044711	N44	human brain tissue	brain	Normal	Case_36	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044712	T44	human brain tissue	brain	Tumor	Case_36	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044713	N45-2	human brain tissue	brain	Normal	Case_37	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044714	T45	human brain tissue	brain	Tumor	Case_37	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044715	N46-2	human brain tissue	brain	Normal	Case_38	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044716	T46	human brain tissue	brain	Tumor	Case_38	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044717	N47-2	human brain tissue	brain	Normal	Case_39	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044718	T47	human brain tissue	brain	Tumor	Case_39	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044719	N31	human brain tissue	brain	Normal	Case_4	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044720	T31	human brain tissue	brain	Tumor	Case_4	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044721	N49	human brain tissue	brain	Normal	Case_41	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044722	T49	human brain tissue	brain	Tumor	Case_41	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044723	N32	human brain tissue	brain	Normal	Case_5	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044724	T32	human brain tissue	brain	Tumor	Case_5	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044725	N33	human brain tissue	brain	Normal	Case_6	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044726	T33	human brain tissue	brain	Tumor	Case_6	oligodendroglioma IDH mutant and 1p/19q-codeleted grade 3
+GSM5044727	N51-1	human brain tissue	brain	Normal	Case_42	IDH mutant astrocytoma grade 2
+GSM5044728	T51	human brain tissue	brain	Tumor	Case_42	IDH mutant astrocytoma grade 2
+GSM5044729	N52	human brain tissue	brain	Normal	Case_43	IDH mutant astrocytoma grade 2
+GSM5044730	T52	human brain tissue	brain	Tumor	Case_43	IDH mutant astrocytoma grade 2
+GSM5044731	N1	human brain tissue	brain	Normal	Case_7	IDH mutant astrocytoma grade 2
+GSM5044732	T1	human brain tissue	brain	Tumor	Case_7	IDH mutant astrocytoma grade 2
+GSM5044733	N2	human brain tissue	brain	Normal	Case_8	IDH mutant astrocytoma grade 2
+GSM5044734	T2	human brain tissue	brain	Tumor	Case_8	IDH mutant astrocytoma grade 2
+GSM5044735	N7	human brain tissue	brain	Normal	Case_11	IDH mutant astrocytoma grade 3
+GSM5044736	T7	human brain tissue	brain	Tumor	Case_11	IDH mutant astrocytoma grade 3
+GSM5044737	N8	human brain tissue	brain	Normal	Case_13	IDH mutant astrocytoma grade 3
+GSM5044738	T8	human brain tissue	brain	Tumor	Case_13	IDH mutant astrocytoma grade 3
+GSM5044739	N17	human brain tissue	brain	Normal	Case_19	IDH mutant astrocytoma grade 3
+GSM5044740	T17	human brain tissue	brain	Tumor	Case_19	IDH mutant astrocytoma grade 3
+GSM5044741	N39	human brain tissue	brain	Normal	Case_31	IDH mutant astrocytoma grade 3
+GSM5044742	T39	human brain tissue	brain	Tumor	Case_31	IDH mutant astrocytoma grade 3
+GSM5044743	N41	human brain tissue	brain	Normal	Case_33	IDH mutant astrocytoma grade 3
+GSM5044744	T41	human brain tissue	brain	Tumor	Case_33	IDH mutant astrocytoma grade 3
+GSM5044745	N26	human brain tissue	brain	Normal	Case_26	IDH mutant astrocytoma grade 4
+GSM5044746	T26	human brain tissue	brain	Tumor	Case_26	IDH mutant astrocytoma grade 4
+GSM5044747	N27	human brain tissue	brain	Normal	Case_27	IDH mutant astrocytoma grade 4
+GSM5044748	T27	human brain tissue	brain	Tumor	Case_27	IDH mutant astrocytoma grade 4
+GSM5044749	N6	human brain tissue	brain	Normal	Case_10	Glioblastoma
+GSM5044750	T6	human brain tissue	brain	Tumor	Case_10	Glioblastoma
+GSM5044751	N12	human brain tissue	brain	Normal	Case_17	Glioblastoma
+GSM5044752	T12	human brain tissue	brain	Tumor	Case_17	Glioblastoma
+GSM5044753	N13	human brain tissue	brain	Normal	Case_18	Glioblastoma
+GSM5044754	T13	human brain tissue	brain	Tumor	Case_18	Glioblastoma
+GSM5044755	N18	human brain tissue	brain	Normal	Case_20	Glioblastoma
+GSM5044756	T18	human brain tissue	brain	Tumor	Case_20	Glioblastoma
+GSM5044757	N19	human brain tissue	brain	Normal	Case_21	Glioblastoma
+GSM5044758	T19	human brain tissue	brain	Tumor	Case_21	Glioblastoma
+GSM5044759	N20	human brain tissue	brain	Normal	Case_22	Glioblastoma
+GSM5044760	T20	human brain tissue	brain	Tumor	Case_22	Glioblastoma
+GSM5044761	N22	human brain tissue	brain	Normal	Case_23	Glioblastoma
+GSM5044762	T22	human brain tissue	brain	Tumor	Case_23	Glioblastoma
+GSM5044763	N24	human brain tissue	brain	Normal	Case_24	Glioblastoma
+GSM5044764	T24	human brain tissue	brain	Tumor	Case_24	Glioblastoma
+GSM5044765	N25	human brain tissue	brain	Normal	Case_25	Glioblastoma
+GSM5044766	T25	human brain tissue	brain	Tumor	Case_25	Glioblastoma
+GSM5044767	N14	human brain tissue	brain	Normal	Case_28	Glioblastoma
+GSM5044768	T14	human brain tissue	brain	Tumor	Case_28	Glioblastoma
+GSM5044769	N16	human brain tissue	brain	Normal	Case_29	Glioblastoma
+GSM5044770	T16	human brain tissue	brain	Tumor	Case_29	Glioblastoma
+GSM5044771	N21	human brain tissue	brain	Normal	Case_30	Glioblastoma
+GSM5044772	T21	human brain tissue	brain	Tumor	Case_30	Glioblastoma
+GSM5044773	N40	human brain tissue	brain	Normal	Case_32	Glioblastoma
+GSM5044774	T40	human brain tissue	brain	Tumor	Case_32	Glioblastoma
+GSM5044775	N42-1	human brain tissue	brain	Normal	Case_34	Glioblastoma
+GSM5044776	T42	human brain tissue	brain	Tumor	Case_34	Glioblastoma
+GSM5044777	N4	human brain tissue	brain	Normal	Case_9	Glioblastoma
+GSM5044778	T4	human brain tissue	brain	Tumor	Case_9	Glioblastoma
