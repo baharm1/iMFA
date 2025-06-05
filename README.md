@@ -36,11 +36,14 @@ Then the tissue labeled MIDs are divided by the correction factor in `SEnorm.R` 
 
 Output files of `SEnorm.R` are normalized MIDs (`output_SEnorm`).
 
+**Data Exclusion Criteria**
+The need for multiple timepoints to develop our hypothesis-generating metabolic flux models constrained sample numbers at each timepoint, and exclusions were necessary to minimize variance within groups and ensure data robustness. To ensure the reliability of our data for these models, we excluded data points (highlighted in red in excel files) based on study-specific criteria tailored to the limited sample size and proof-of-concept nature of this modeling. Samples were removed if: (1) Data disrupted the expected concave, increasing enrichment trend (Extended Data Fig. 6a,b), in particular at t=60; (2) technical replicates exhibited high variability (exceeding within-sample consistency thresholds); (3) MIDs of a replicate deviated significantly from the other replicates; or (4) tissue weight measurements used for abundance normalization (Extended Data Fig. 6h) were outliers (either excessively low or high).
+
 ## Purine INST-MFA Model
 1. To estimate the flux profiles, change the user-defined inputs in `main_purines.m` and run the file. Output plots and excel files will be auto-generated and saved in a folder titled output_files. The files intervals.xlsx will contain the optimum flux value and confidence intervals. The folder titled plots will contain MID-time plots that compare the model simulation (blue lines) to the experimental data (orange markers). 95% confidence intervals of fluxes resulted from `main_purines.m` were used as lower and upper bounds of fluxes at t=0 in dynamic iMFA.
 2. The user-defined inputs are described in the next section. The model inputs should be in the specified format. We have included the input files used to generate the flux profiles for the manuscript.
 3. The file `MTHF_mid_estimation.m` was used to estimate the enrichment of one-carbon unit from the enrichment of serine and glycine. The input_data_file for this small code will be the same as the one used for the main model. The output from this code is included in the input files provided for the main model.
-4. The results of purine INST-MFA model are shown in **Fig 4A**.
+4. The results of purine INST-MFA model are shown in **Fig. 3b**.
 
 Please note that the runtime for our machine with 12 cores, Intel core i-9 processor, and 64 GB RAM was 2-3 days. Runtime may differ depending on the machine's capability.
 
@@ -64,7 +67,7 @@ Fluxes in cortex:
 ## Pyrimidine INST-MFA Model
 
 To estimate the flux profiles, change the user-defined inputs in `main_pyrimidines.m` and run the file. In pyrimidine model, we used a set of parameters for fractional contribution of isotopologues of aspartate that creates labeling patterns in UMP. Other instructions are similar to the purine model.
-The results of pyrimidine INST-MFA model are shown in **Fig S16C**.
+The results of pyrimidine INST-MFA model are shown in **Fig. 3c**.
    
 ### Replication of Data in the Manuscript: Pyrimidines
 
@@ -103,13 +106,13 @@ model_file is an Excel file with the following data in separate sheets:
 
 input_data_file is an Excel file with the following data in separate sheets:
 1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours). 
-2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S15B-C**.
+2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. Normalized % mean enrichment and their standard deviations are shown in **Extended Data Fig. 6a,b**.
 3. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
-4. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation. Concentraion unit is pmol/mg-tissue. Calculation of concentrations are shown in `norm_abundance_control.xlsx` and **Fig S15D**.
+4. conc: Known metabolite concentrations. The first column has the concentrtaion names, the second has the concentration values and the third has the standard deviation. Concentraion unit is pmol/mg-tissue. Calculation of concentrations are shown in `norm_abundance_control.xlsx` and **Extended Data Fig. 6e**.
 
 ## Purine Dynamic MFA
 This code was used to estimate time-dependent changes in purine pathway fluxes after radiation. We used B-splines to generate the transient flux profiles from time-course isotope tracing data. 
-The metabolic model and methodology is described in the supplementary methods of the manuscript. The results of purine dynamic MFA are shown in **Fig S19**.
+The metabolic model and methodology is described in the supplementary methods of the manuscript. The results of purine dynamic MFA are shown in **Extended Data Fig. 7**.
 
 ### Usage
 1. To estimate the flux profiles, change the user-defined inputs in `main_purines_dmfa.m` and run the file. The flux-time plots will be generated and saved a folder titled output_files.
@@ -133,9 +136,9 @@ Please note that the runtime for our machine with 12 cores, Intel core i-9 proce
 
 input_data_file is an Excel file with the following data in separate sheets:
 1. MID: The percent MID enrichments of the metabolites in the model calculated based on normalized MIDs (`output_SEnorm`). Values are averaged for each time point and condition. The first column is the name of the metabolite, and the second column is the isotopologue. The subsequent columns contain the MID at the samples time points. The value of the first row from the third column onwards corresponds to the time (in hours).
-2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Fig S18B**.
+2. SD: Sample standard deviation of the percent MID enrichments (`output_SEnorm`) for each time point and condition with the same format as MID sheet. MIDs and their standard deviations are shown in **Extended Data Fig. 6g**.
 3. conc: The fold-change in metabolite concentrations relative to t=0 (_i.e._, ctrl condition). The first column corresponds to the metabolite name and the subsequent columns correspond to the values at sampled time points. The value of the first row from the third column onwards corresponds to the time (in hours).
-4. conc SD: Standard deviation of the measured values in conc sheet with the same format as conc sheet. Calculation of concentrations are shown in `norm_abundance_rt.xlsx` and **Fig S18C**.
+4. conc SD: Standard deviation of the measured values in conc sheet with the same format as conc sheet. Calculation of concentrations are shown in `norm_abundance_rt.xlsx` and **Extended Data Fig 6h**.
 5. unlabeled_metabs: List of metabolites that are assumed to be unlabeled in the model based on our experimental data.
 6. c0: The initial concentrtaion of the mass-balanced metabolites. The values were set according to the results from the INST-MFA purine model. conc: concentration, sd: standard deviation, lb: lower bound, ub: upper bound, ss_opt: The optimum value determined from the INST-MFA code.
 7. v0: The initial fluxes. The values were set according to the results from the INST-MFA purine model. lb: 95% lower confidence bound, ub: 95% upper confidence bound, ss_opt: The optimum value determined from the INST-MFA code.
