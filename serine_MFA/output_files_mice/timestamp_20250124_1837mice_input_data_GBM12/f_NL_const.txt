@@ -1,0 +1,34 @@
+GLYb
+v10*(SERb1 + SERb2) - GLYb1*v12 - GLYb1*v17 - GLYb1*v11
+v10*(SERb3 + SERb4) - GLYb2*v12 - GLYb2*v17 - GLYb2*v11
+v10*(SERb5 + SERb6) - GLYb3*v12 - GLYb3*v17 - GLYb3*v11
+v10*(SERb7 + SERb8) - GLYb4*v12 - GLYb4*v17 - GLYb4*v11
+GLYg
+v4*(SERg1 + SERg2) - GLYg1*v6 - GLYg1*v14 - GLYg1*v5
+v4*(SERg3 + SERg4) - GLYg2*v6 - GLYg2*v14 - GLYg2*v5
+v4*(SERg5 + SERg6) - GLYg3*v6 - GLYg3*v14 - GLYg3*v5
+v4*(SERg7 + SERg8) - GLYg4*v6 - GLYg4*v14 - GLYg4*v5
+METHFb
+v10*(SERb1 + SERb3 + SERb5 + SERb7) - METHFb1*v18 - METHFb1*v12 + v11*(GLYb1 + GLYb3)
+v10*(SERb2 + SERb4 + SERb6 + SERb8) - METHFb2*v18 - METHFb2*v12 + v11*(GLYb2 + GLYb4)
+METHFg
+v4*(SERg1 + SERg3 + SERg5 + SERg7) - METHFg1*v15 - METHFg1*v6 + v5*(GLYg1 + GLYg3)
+v4*(SERg2 + SERg4 + SERg6 + SERg8) - METHFg2*v15 - METHFg2*v6 + v5*(GLYg2 + GLYg4)
+SERb
+v9 + PGb1*v8 - SERb1*v10 - SERb1*v16 + SERp1*v7 + GLYb1*METHFb1*v12
+PGb2*v8 - SERb2*v10 - SERb2*v16 + SERp2*v7 + GLYb1*METHFb2*v12
+PGb3*v8 - SERb3*v10 - SERb3*v16 + SERp3*v7 + GLYb2*METHFb1*v12
+PGb4*v8 - SERb4*v10 - SERb4*v16 + SERp4*v7 + GLYb2*METHFb2*v12
+PGb5*v8 - SERb5*v10 - SERb5*v16 + SERp5*v7 + GLYb3*METHFb1*v12
+PGb6*v8 - SERb6*v10 - SERb6*v16 + SERp6*v7 + GLYb3*METHFb2*v12
+PGb7*v8 - SERb7*v10 - SERb7*v16 + SERp7*v7 + GLYb4*METHFb1*v12
+PGb8*v8 - SERb8*v10 - SERb8*v16 + SERp8*v7 + GLYb4*METHFb2*v12
+SERg
+v3 + PGg1*v2 - SERg1*v4 + SERp1*v1 - SERg1*v13 + GLYg1*METHFg1*v6
+PGg2*v2 - SERg2*v4 + SERp2*v1 - SERg2*v13 + GLYg1*METHFg2*v6
+PGg3*v2 - SERg3*v4 + SERp3*v1 - SERg3*v13 + GLYg2*METHFg1*v6
+PGg4*v2 - SERg4*v4 + SERp4*v1 - SERg4*v13 + GLYg2*METHFg2*v6
+PGg5*v2 - SERg5*v4 + SERp5*v1 - SERg5*v13 + GLYg3*METHFg1*v6
+PGg6*v2 - SERg6*v4 + SERp6*v1 - SERg6*v13 + GLYg3*METHFg2*v6
+PGg7*v2 - SERg7*v4 + SERp7*v1 - SERg7*v13 + GLYg4*METHFg1*v6
+PGg8*v2 - SERg8*v4 + SERp8*v1 - SERg8*v13 + GLYg4*METHFg2*v6
