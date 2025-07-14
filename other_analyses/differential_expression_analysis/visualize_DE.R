@@ -146,11 +146,11 @@ write.table(saveDElist, file = 'GSE59612_DE_neurotransmitter_nonenhancing_cortex
 # volcano plots ----
 
 # replace neurotransmitter with serine in the following lines to visualize serine-related genes in volcano plot
-DElistE = read.delim(file = 'GSE59612_DE_neurotransmitter_enhancing_cortex.txt', 
+DElistE = read.delim(file = 'GSE59612_DE_serine_enhancing_cortex.txt', 
                       sep = '\t', header = T)
-DElistN = read.delim(file = 'GSE59612_DE_neurotransmitter_nonenhancing_cortex.txt', 
+DElistN = read.delim(file = 'GSE59612_DE_serine_nonenhancing_cortex.txt', 
                       sep = '\t', header = T)
-DElistG = read.delim(file = 'GSE165595_DE_neurotransmitter_tumor_normal.txt', 
+DElistG = read.delim(file = 'GSE165595_DE_serine_tumor_normal.txt', 
                        sep = '\t', header = T)
 
 DElistE[['color']] = rep('#D2691E', nrow(DElistE))
@@ -163,13 +163,16 @@ names(keyvals)[keyvals == '#D2691E'] <- 'GSE59612_Enhancing_vs_Cortex'
 names(keyvals)[keyvals == 'black'] <- 'GSE59612_NonEnhancing_vs_Cortex'
 names(keyvals)[keyvals == 'gold'] <- 'GSE165595_GBM_vs_Cortex'
 
-pdf(file = 'volcano_DE_neurotransmitter_FC_1_GSE59612_GSE165595.pdf', 
-    height = 20, width = 18)
+pdf(file = 'volcano_DE_serine_FC_1_GSE59612_GSE165595.pdf', 
+    height = 12, width = 8)
 EnhancedVolcano(DElist,
                 lab = DElist$Symbol,
                 x = 'log2FoldChange',
                 y = 'padj',
                 #selectLab = DElist$Symbol,
+                #selectLab = c('GABRA1', 'GABRB2', 'GAD1', 'GAD2', 'SLC32A1',
+                              #'SYT1', 'UNC13A', 'CPLX2', 'DOC2A', 'DOC2B', 'CCL2'),
+                selectLab = c('PSPH', 'SLC1A5', 'SLC12A4', 'SLC3A2'),
                 xlab = bquote(~Log[2]~ 'fold change'),
                 pCutoff = 0.05,
                 FCcutoff = 1,
