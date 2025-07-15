@@ -1,4 +1,4 @@
-## Correction of mice inter-variability for U<sup>13</sup>C-glucose saturation (`saturation_enrichment`)
+## Correction of mice inter-variability for U<sup>13</sup>C-glucose saturation
 
 To remove the inter-variability of plasma glucose enrichment between mice, we fitted the plasma glucose mean enrichment to a two-compartment exponential decay function based on the tracer kinetics model [1]. The following parameters are needed to run `two_compartment.m`:
 

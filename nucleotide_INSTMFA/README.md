@@ -1,8 +1,11 @@
-# iMFA at metabolic steady state quantifies nucleotide metabolism in glioma patients
-We implemented an ordinary differential equation-based MFA model (INST-MFA) using time-course nucleotide mass isotopologue distribution profiles to solve for fluxes shown in the following figure.
+# Quantification of nucleotide metabolism _in vivo_ using iMFA at metabolic steady state
+We implemented an ordinary differential equation-based MFA model (INST-MFA) using time-course nucleotide mass isotopologue distribution profiles to to estimate the purine and pyrimidine pathway fluxes (shown in the figure below) in normal cortex and GBM38 tumor-bearing mice. 
+The metabolic model and methodology is described in the supplementary methods of the manuscript.
+Metabolites were assumed to be not accumulated in the treatment-naïve tissues. 
+However, the enrichment of MIDs for mass-balanced metabolites were assumed to be accumulated over time based on our time course experiments. Hence, a metabolic steady state - isotopic non-steady steady state metabolic flux analysis (INST-MFA) was used.
 
 <p align="center">
-	<img width="80%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/nucleotide_INSTMFA.png">
+	<img width="100%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/nucleotide_INSTMFA.png">
 </p>
 
 ## Purine INST-MFA Model

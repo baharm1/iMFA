@@ -1,13 +1,30 @@
 # iMFA: _In Vivo_ Metabolic Flux Analysis
 
-This code was used to estimate the purine and pyrimidine pathway fluxes in GBM and cortex in xenograft mice models. The metabolic model and methodology is described in the supplementary methods of the manuscript.
-Metabolites were assumed to be not accumulated in the treatment-naïve tissues. 
-However, the enrichment of MIDs for mass-balanced metabolites were assumed to be accumulated over time based on our time course experiments. Hence, a metabolic steady state - isotopic non-steady steady state metabolic flux analysis (INST-MFA) was used.
-In the radiation treated tissues, we incorporated time-dependent changes of metabolite pool sizes and a dynamic MFA was performed.
-Codes related to molecular subtype classification and differential expression analysis can be found in `other_analyses` folder. 
+The codes related to our manuscript **"Rewiring of Cortical Glucose Metabolism Fuels Human Brain Cancer Growth"** can be found in this repository.
+
+We organized the codes into following folders and provided a detailed description for using the codes in each folder. Please click on the links below to see the codes and README files.
+
+1. [Correction of mice inter-variability for U<sup>13</sup>C-glucose saturation](https://github.com/baharm1/iMFA/blob/main/saturation_enrichment)
+
+2. [Quantification of nucleotide metabolism _in vivo_ using iMFA at metabolic steady state](https://github.com/baharm1/iMFA/blob/main/nucleotide_INSTMFA)
+
+<p align="center">
+	<img width="100%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/INSTMFA.png">
+</p>
+
+3. [Quantification of purine fluxes in radiation-treated tissues using dynamic MFA](https://github.com/baharm1/iMFA/blob/main/purines_DMFA)
+
+<p align="center">
+	<img width="100%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/nucleotide_DMFA.png">
+</p>
+
+4. [Estimation of relative serine uptake and synthesis fluxes _in vivo_]((https://github.com/baharm1/iMFA/blob/main/serine_MFA)
+
+5. [Bioinformatic analyses related to differential expression and molecular subtype classification]((https://github.com/baharm1/iMFA/blob/main/other_analysis)
 
 ### Requirements
-1. MATLAB with default installation (We used MATLAB R2021b on Windows 11 OS)
-2. [Artelys Knitro Optimizer](https://www.artelys.com/solvers/knitro/) (MATLAB version)
+1. MATLAB R2021b with default installation on Windows 11
+2. [Artelys Knitro Optimizer version 12.4](https://www.artelys.com/solvers/knitro/) (MATLAB version)
 3. MATLAB Parallel Processing toolkit (optional)
-
+4. R version 4.2.2
+More detailed requirements can be found in each folder/code.

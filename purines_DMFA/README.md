@@ -1,5 +1,6 @@
 ## Purine Dynamic MFA
-This code was used to estimate time-dependent changes in purine pathway fluxes after radiation. We used B-splines to generate the transient flux profiles from time-course isotope tracing data. 
+This code was used to estimate time-dependent changes in purine pathway fluxes after radiation. In the radiation-treated tissues, we incorporated time-dependent changes of metabolite pool sizes and a dynamic MFA was performed.
+We used B-splines to generate the transient flux profiles from time-course isotope tracing data. 
 The metabolic model and methodology is described in the supplementary methods of the manuscript. The results of purine dynamic MFA are shown in **Extended Data Fig. 7**.
 
 ### Usage

@@ -5,7 +5,7 @@ A list of signature genes of three molecular subtypes has been provided in [1], 
 After integrating all patient samples and checking the quality control using Seurat (version 4.2.0), the UMI counts were used in AUCell (version 1.28.0) to calculate gene set enrichment scores based on the ranking of specified molecular subtype genes among all expressed genes in a cell [2]. 
 Following AUCell guidelines, a threshold for each molecular subtype gene set was selected based on the global distribution of area under the curve of gene set rankings (by setting the selected thresholds to Global_k1; dashed grey line in exploreThresholds plots). 
 These thresholds were used to assign cells to molecular subtypes. This analysis was performed in R (version 4.4.2).
-The results of scRNA-seq subtype classification are shown in **Fig S1B-D**.
+The results of scRNA-seq subtype classification are shown in **Extended Data Fig. 1b-d**.
 
 ## Molecular subtype classification using bulk RNA-seq
 We integrated our RNA-seq data (`read_counts`) with TCGA-GBM RNA-seq data. To download TCGA-GBM, we picked sample ids that contain bulk RNA-seq data from [GDC data portal](https://portal.gdc.cancer.gov/). The sample ids can be found in `cohort_Brain.2024-12-13.tsv`. 
@@ -16,13 +16,13 @@ TPM values (`combined_tcga_tempus_tpm.gct`) were imported to GenePattern [3] sin
 Hierarchical clustering grouped integrated RNA-seq samples based on the similarities of their enrichment scores. 
 Since the molecular subtypes of TCGA-GBM were identified previously in [1] (`tcga_subtypes_wang_2017.txt`), the samples from our patient cohort that clustered with the TCGA-GBM samples may have similar molecular subtypes as TCGA-GBM samples. 
 To identify molecular subtypes of our patient cohort independent of TCGA-GBM, we imported log-normalized RPKM values (`combined_tcga_tempus_log2_rpkm.txt`) to GlioVis portal [30] and performed three available methods including support vector machine (SVM), k-nearest neighbor (KNN), and ssGSEA (`gliovis_combined_tcga_gbm_gdc_tempus`). A combined assessment of all methods was conducted to assign one subtype to each sample.
-The results of bulk RNA-seq subtype classification are shown in **Fig S1A**.
+The results of bulk RNA-seq subtype classification are shown in **Extended Data Fig. 1a**.
 
 ## Transcriptional regulation of neurotransmitters and serine related enzymes in GBM vs cortex
 To understand the transcriptional regulation of serine related enzymes and neurotransmitters, we performed differential expression analysis on two available RNA-seq datasets: GSE59612 which includes normal cortex, enhancing and non-enhancing glioma samples [4] and GSE165595 which includes normal cortex and GBM samples [5]. 
 Raw counts were imported to DESeq function for differential expression analysis using Wald significance test and size factor type = poscount. Fold changes show the comparison of differential expressions in glioma samples over cortex samples with a false discovery rate less than 0.05 using Benjamini-Hochberg test. 
 These calculations were performed on [GEO2R portal](https://www.ncbi.nlm.nih.gov/geo/geo2r/).
-Related figures to differential expression analysis are shown in **Fig S8-S9** for neurotransmitters and **Fig S25-S26** for serine related genes.
+Related figures to differential expression analysis are shown in ** Extended Data Fig. 5** for neurotransmitters and serine related genes.
 
 ## References
 [1] Wang, Q. _et al._ (2017) Tumor Evolution of Glioma-Intrinsic Gene Expression Subtypes Associates with Immunological Changes in the Microenvironment. _Cancer Cell_ 32, 42-56 e46. 10.1016/j.ccell.2017.06.003

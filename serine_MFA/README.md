@@ -3,7 +3,7 @@
 This code was used to estimate the relative serine uptake and synthesis fluxes _in vivo_. A three-compartment model including enhancing, non-enhancing, and brain tissues is implemented to quantify fluxes in patient tumors (see figure below). The metabolic model and methodology is described in the supplementary methods of the manuscript. We used a previously developed IMM-MFA model by [Yang _et al._](https://pubmed.ncbi.nlm.nih.gov/27829138/). 
 
 <p align="center">
-	<img width="80%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/serine_MFA_3comp.png">
+	<img width="70%" src="https://github.com/baharm1/iMFA/blob/main/readme_figs/serine_MFA_3comp.png">
 </p>
 
 ### Requirements
