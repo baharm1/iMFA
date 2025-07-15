@@ -20,7 +20,7 @@ We organized the codes into following folders and provided a detailed descriptio
 
 4. [Estimation of relative serine uptake and synthesis fluxes _in vivo_](https://github.com/baharm1/iMFA/blob/main/serine_MFA)
 
-5. [Bioinformatic analyses related to differential expression and molecular subtype classification](https://github.com/baharm1/iMFA/blob/main/other_analysis)
+5. [Bioinformatic analyses related to differential expression and molecular subtype classification](https://github.com/baharm1/iMFA/blob/main/other_analyses)
 
 ### Requirements:
 1. MATLAB R2021b with default installation on Windows 11
