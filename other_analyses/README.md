@@ -8,7 +8,8 @@ These thresholds were used to assign cells to molecular subtypes. This analysis 
 The results of scRNA-seq subtype classification are shown in **Extended Data Fig. 1b-d**.
 
 ## Molecular subtype classification using bulk RNA-seq
-We integrated our RNA-seq data (`read_counts`) with TCGA-GBM RNA-seq data. To download TCGA-GBM, we picked sample ids that contain bulk RNA-seq data from [GDC data portal](https://portal.gdc.cancer.gov/). The sample ids can be found in `cohort_Brain.2024-12-13.tsv`. 
+Bulk RNA-seq data generated in this study are accessible through GEO Series accession number [GSE299102](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE299102). We integrated our RNA-seq data (`read_counts`) with TCGA-GBM RNA-seq data. 
+To download TCGA-GBM, we picked sample ids that contain bulk RNA-seq data from [GDC data portal](https://portal.gdc.cancer.gov/). The sample ids can be found in `cohort_Brain.2024-12-13.tsv`. 
 Read counts were normalized to reads per kilobase per million mapped reads (RPKM) and transcript per million (TPM) using the human reference genome from [Ensembl](https://ftp.ensembl.org/pub/release-113/gtf/homo_sapiens/Homo_sapiens.GRCh38.113.gtf.gz) and the Ensemble transcripts with the maximum transcript length.
 RPKM values were transformed to log2(1+RPKM) and Ensemble ids were converted to HGNC ids or gene names using biomaRt library (version 2.54.0) in R (4.2.2). 
 Signature genes of molecular subtypes were defined previously in [1]. 
