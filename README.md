@@ -27,7 +27,8 @@ We organized the codes into following folders and provided a detailed descriptio
 2. [Artelys Knitro Optimizer version 12.4](https://www.artelys.com/solvers/knitro/) (MATLAB version)
 3. MATLAB Parallel Processing toolkit (optional)
 4. R version 4.2.2
+
 More detailed requirements can be found in each folder/code.
 
 ## Citation
-Scott, A.J., Mittal, A., Meghdadi, B., _et al._ Rewiring of cortical glucose metabolism fuels human brain cancer growth. medRxiv (2023). [10.1101/2023.10.24.23297489](https://doi.org/10.1101/2023.10.24.23297489).
+Scott A.J., Mittal A., Meghdadi B., _et al._ Rewiring of cortical glucose metabolism fuels human brain cancer growth. medRxiv (2023). [10.1101/2023.10.24.23297489](https://doi.org/10.1101/2023.10.24.23297489).

@@ -23,7 +23,7 @@ The results of bulk RNA-seq subtype classification are shown in **Extended Data 
 To understand the transcriptional regulation of serine related enzymes and neurotransmitters, we performed differential expression analysis on two available RNA-seq datasets: GSE59612 which includes normal cortex, enhancing and non-enhancing glioma samples [4] and GSE165595 which includes normal cortex and GBM samples [5]. 
 Raw counts were imported to DESeq function for differential expression analysis using Wald significance test and size factor type = poscount. Fold changes show the comparison of differential expressions in glioma samples over cortex samples with a false discovery rate less than 0.05 using Benjamini-Hochberg test. 
 These calculations were performed on [GEO2R portal](https://www.ncbi.nlm.nih.gov/geo/geo2r/).
-Related figures to differential expression analysis are shown in ** Extended Data Fig. 5** for neurotransmitters and serine related genes.
+Related figures to differential expression analysis are shown in **Extended Data Fig. 5** for neurotransmitters and serine related genes.
 
 ## References
 [1] Wang, Q. _et al._ (2017) Tumor Evolution of Glioma-Intrinsic Gene Expression Subtypes Associates with Immunological Changes in the Microenvironment. _Cancer Cell_ 32, 42-56 e46. 10.1016/j.ccell.2017.06.003
