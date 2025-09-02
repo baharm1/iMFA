@@ -31,4 +31,4 @@ We organized the codes into following folders and provided a detailed descriptio
 More detailed requirements can be found in each folder/code.
 
 ## Citation
-Scott A.J., Mittal A., Meghdadi B., _et al._ Rewiring of cortical glucose metabolism fuels human brain cancer growth. medRxiv (2023). [10.1101/2023.10.24.23297489](https://doi.org/10.1101/2023.10.24.23297489).
+Scott, A.J., Mittal, A., Meghdadi, B., _et al._ Rewiring of cortical glucose metabolism fuels human brain cancer growth. _Nature_ (2025). [DOI: 10.1038/s41586-025-09460-7](https://www.nature.com/articles/s41586-025-09460-7).
